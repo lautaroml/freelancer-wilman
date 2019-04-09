@@ -30,4 +30,5 @@ Route::name('admin.')->prefix('admin')/*->middleware('admin')*/->group(function 
     Route::resource('/municipios', 'MunicipioController');
     Route::resource('/comunas', 'ComunaController');
     Route::resource('/barrios', 'BarrioController');
+    Route::resource('/puestos', 'PuestoController');
 });
