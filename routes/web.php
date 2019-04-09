@@ -21,6 +21,7 @@ Auth::routes(['register' => false]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::name('admin.')->prefix('admin')/*->middleware('admin')*/->group(function () {
+    Route::view('/home', 'admin/home');
     Route::resource('/users', 'UserController');
     Route::resource('/perfiles', 'PerfilController');
     Route::resource('/departamentos', 'DepartamentoController');
@@ -29,4 +30,8 @@ Route::name('admin.')->prefix('admin')/*->middleware('admin')*/->group(function 
     Route::resource('/barrios', 'BarrioController');
     Route::resource('/puestos', 'PuestoController');
     Route::resource('/mesas', 'MesaController');
+});
+
+Route::name('public.')->prefix('public')/*->middleware('admin')*/->group(function () {
+    Route::view('/home', 'public/home');
 });

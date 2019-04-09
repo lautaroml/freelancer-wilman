@@ -26,24 +26,27 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'App Polania') }}
                 </a>
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Herramientas</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('admin.users.index') }}">Usuarios</a>
-                            <a class="dropdown-item" href="{{ route('admin.perfiles.index') }}">Perfiles</a>
-                            <a class="dropdown-item" href="{{ route('admin.puestos.index') }}">Puesto</a>
-                            <a class="dropdown-item" href="{{ route('admin.mesas.index') }}">Mesas</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('admin.departamentos.index') }}">Departamentos</a>
-                            <a class="dropdown-item" href="{{ route('admin.municipios.index') }}">Municipios</a>
-                            <a class="dropdown-item" href="{{ route('admin.comunas.index') }}">Comunas</a>
-                            <a class="dropdown-item" href="{{ route('admin.barrios.index') }}">Barrios</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Foo</a>
-                        </div>
-                    </li>
-                </ul>
+                @auth
+                    @if(auth()->user()->isAdmin())
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Herramientas</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">Usuarios</a>
+                                    <a class="dropdown-item" href="{{ route('admin.perfiles.index') }}">Perfiles</a>
+                                    <a class="dropdown-item" href="{{ route('admin.puestos.index') }}">Puesto</a>
+                                    <a class="dropdown-item" href="{{ route('admin.mesas.index') }}">Mesas</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{ route('admin.departamentos.index') }}">Departamentos</a>
+                                    <a class="dropdown-item" href="{{ route('admin.municipios.index') }}">Municipios</a>
+                                    <a class="dropdown-item" href="{{ route('admin.comunas.index') }}">Comunas</a>
+                                    <a class="dropdown-item" href="{{ route('admin.barrios.index') }}">Barrios</a>
+                                </div>
+                            </li>
+                        </ul>
+                    @endif
+                @endauth
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
