@@ -13,7 +13,7 @@ class CreateLidersTable extends Migration
      */
     public function up()
     {
-        Schema::create('liders', function (Blueprint $table) {
+        /*Schema::create('liders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombres');
             $table->unsignedInteger('departamento_id');
@@ -23,7 +23,7 @@ class CreateLidersTable extends Migration
             $table->string('email');
             $table->string('telefono');
             $table->timestamps();
-        });
+        });*/
     }
 
     /**
