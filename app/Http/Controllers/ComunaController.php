@@ -49,7 +49,6 @@ class ComunaController extends Controller
         $comuna->save();
 
         return redirect()->route('admin.comunas.index')->with(['success' => 'Comuna creada correctamente!']);
-
     }
 
     /**

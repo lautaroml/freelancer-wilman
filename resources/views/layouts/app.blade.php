@@ -36,6 +36,7 @@
                             <a class="dropdown-item" href="{{ route('admin.departamentos.index') }}">Departamentos</a>
                             <a class="dropdown-item" href="{{ route('admin.municipios.index') }}">Municipios</a>
                             <a class="dropdown-item" href="{{ route('admin.comunas.index') }}">Comunas</a>
+                            <a class="dropdown-item" href="{{ route('admin.barrios.index') }}">Barrios</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Foo</a>
                         </div>
