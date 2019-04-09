@@ -11,11 +11,11 @@ class PerfilsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' =>'Admin'
+        DB::table('perfils')->insert([
+            'nombre' =>'Admin'
         ]);
-        DB::table('users')->insert([
-            'name' =>'Normal'
+        DB::table('perfils')->insert([
+            'nombre' =>'Normal'
         ]);
     }
 }

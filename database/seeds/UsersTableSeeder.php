@@ -20,7 +20,6 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make(env('ADMIN_PASS')),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-
         ]);
     }
 }
