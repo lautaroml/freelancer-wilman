@@ -73,6 +73,7 @@
         </nav>
 
         <main class="py-4">
+            @include('layouts.alerts.alerts')
             @yield('content')
         </main>
     </div>
