@@ -21,7 +21,7 @@
                                 <tr>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->perfil_id }}</td>
+                                    <td>{{ $user->perfil->nombre }}</td>
                                     <td>
                                         <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-outline-success">Editar</a>
                                     </td>
@@ -30,6 +30,8 @@
                             </tbody>
                         </table>
                         {{ $users->links() }}
+
+                        <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Nuevo</a>
                     </div>
                 </div>
             </div>

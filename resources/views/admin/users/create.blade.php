@@ -7,14 +7,18 @@
                 <div class="card">
                     <div class="card-header">Usuarios</div>
                     <div class="card-body">
-                        {!! Form::model($user, ['route' => ['admin.users.update', $user->id], 'method' => 'put']) !!}
+                        {!! Form::open(['route' => ['admin.users.store'], 'method' => 'post']) !!}
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nombres</label>
+                                <label for="name">Nombres</label>
                                 {!! Form::text('name', null, ['class' => 'form-control']) !!}
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
+                                <label for="email">Email</label>
                                 {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Contraseña</label>
+                                {!! Form::input('password', 'password', null, ['class' => 'form-control']) !!}
                             </div>
                             <div class="form-group">
                                 <label for="perfil">Perfil</label>
@@ -28,4 +32,3 @@
         </div>
     </div>
 @endsection
-

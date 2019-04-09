@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Perfil;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -14,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(1);
+        $users = User::paginate(10);
         return view('admin.users.index', compact('users'));
     }
 
@@ -25,7 +27,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $perfiles = Perfil::all()->pluck('nombre', 'id');
+        return view('admin.users.create', compact('perfiles'));
     }
 
     /**
@@ -36,7 +39,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->password = Hash::make($request->get('password'));
+        $user->perfil_id = $request->get('perfil_id');
+        $user->save();
+
+        return redirect()->route('admin.users.index')->with(['success' => 'Usuario creado correctamente!']);
     }
 
     /**
@@ -58,7 +68,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.users.edit', compact('user'));
+        $perfiles = Perfil::all()->pluck('nombre', 'id');
+        return view('admin.users.edit', compact('user', 'perfiles'));
     }
 
     /**
@@ -72,6 +83,7 @@ class UserController extends Controller
     {
         $user->name = $request->get('name');
         $user->email = $request->get('email');
+        $user->perfil_id = $request->get('perfil_id');
         $user->save();
 
         return redirect()->route('admin.users.index')->with(['success' => 'Usuario editado correctamente!']);
