@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Usuarios</div>
+                    <div class="card-header">Usuario</div>
                     <div class="card-body">
                         {!! Form::model($user, ['route' => ['admin.users.update', $user->id], 'method' => 'put']) !!}
                             <div class="form-group">

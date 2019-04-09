@@ -24,8 +24,19 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'App Polania') }}
                 </a>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Herramientas</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ route('admin.users.index') }}">Usuarios</a>
+                            <a class="dropdown-item" href="{{ route('admin.perfiles.index') }}">Perfiles</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Foo</a>
+                        </div>
+                    </li>
+                </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

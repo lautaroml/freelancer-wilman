@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Usuarios</div>
+                    <div class="card-header">Usuario</div>
                     <div class="card-body">
                         {!! Form::open(['route' => ['admin.users.store'], 'method' => 'post']) !!}
                             <div class="form-group">

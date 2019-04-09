@@ -12,7 +12,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
-                                    <th>Herramientas</th>
+                                    <th width="20px">Herramientas</th>
                                 </tr>
                             </thead>
                             <tbody>
