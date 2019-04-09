@@ -26,4 +26,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::name('admin.')->prefix('admin')/*->middleware('admin')*/->group(function () {
     Route::resource('/users', 'UserController');
     Route::resource('/perfiles', 'PerfilController');
+    Route::resource('/departamentos', 'DepartamentoController');
+    Route::resource('/municipios', 'MunicipioController');
 });

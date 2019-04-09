@@ -9,7 +9,7 @@
                     <div class="card-body">
                         {!! Form::model($perfil, ['route' => ['admin.perfiles.update', $perfil->id], 'method' => 'put']) !!}
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nombre</label>
+                                <label for="nombre">Nombre</label>
                                 {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
                             </div>
                             <button type="submit" class="btn btn-primary">Confirmar</button>
