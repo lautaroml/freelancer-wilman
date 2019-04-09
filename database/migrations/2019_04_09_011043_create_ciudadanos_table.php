@@ -17,8 +17,8 @@ class CreateCiudadanosTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombres');
             $table->string('telefono');
-            $table->string('telefono_2');
-            $table->string('telefono_3');
+            $table->string('telefono_2')->nullable();
+            $table->string('telefono_3')->nullable();
             $table->string('direccion');
             $table->unsignedInteger('departamento_id');
             $table->unsignedInteger('municipio_id');
@@ -27,7 +27,6 @@ class CreateCiudadanosTable extends Migration
             $table->unsignedInteger('puesto_id');
             $table->unsignedInteger('mesa_id');
             $table->text('email');
-            $table->unsignedInteger('lider_id');
             $table->boolean('activo');
             $table->unsignedInteger('user_id');
             $table->timestamps();

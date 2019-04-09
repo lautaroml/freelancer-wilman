@@ -34,4 +34,5 @@ Route::name('admin.')->prefix('admin')/*->middleware('admin')*/->group(function 
 
 Route::name('public.')->prefix('public')/*->middleware('admin')*/->group(function () {
     Route::view('/home', 'public/home');
+    Route::resource('/ciudadanos', 'CiudadanoController');
 });

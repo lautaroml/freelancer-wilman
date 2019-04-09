@@ -44,6 +44,12 @@
                                 </div>
                             </li>
                         </ul>
+                    @else
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-item" href="{{ route('public.ciudadanos.index') }}">Registro de ciudadanos</a>
+                            </li>
+                        </ul>
                     @endif
                 @endauth
 
