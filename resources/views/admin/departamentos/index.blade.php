@@ -27,6 +27,7 @@
                             @endforeach
                             </tbody>
                         </table>
+                        {{ $departamentos->links() }}
                         <a href="{{ route('admin.departamentos.create') }}" class="btn btn-primary">Nuevo</a>
                     </div>
                 </div>

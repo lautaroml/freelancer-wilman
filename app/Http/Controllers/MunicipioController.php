@@ -15,7 +15,7 @@ class MunicipioController extends Controller
      */
     public function index()
     {
-        $municipios = Municipio::all();
+        $municipios = Municipio::paginate(10);
         return view('admin.municipios.index', compact('municipios'));
     }
 

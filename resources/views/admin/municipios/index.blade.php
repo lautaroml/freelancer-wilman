@@ -29,6 +29,7 @@
                             @endforeach
                             </tbody>
                         </table>
+                        {{ $municipios->links() }}
                         <a href="{{ route('admin.municipios.create') }}" class="btn btn-primary">Nuevo</a>
                     </div>
                 </div>
