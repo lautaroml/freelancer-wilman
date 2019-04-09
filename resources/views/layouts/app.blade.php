@@ -32,8 +32,10 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ route('admin.users.index') }}">Usuarios</a>
                             <a class="dropdown-item" href="{{ route('admin.perfiles.index') }}">Perfiles</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('admin.departamentos.index') }}">Departamentos</a>
                             <a class="dropdown-item" href="{{ route('admin.municipios.index') }}">Municipios</a>
+                            <a class="dropdown-item" href="{{ route('admin.comunas.index') }}">Comunas</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Foo</a>
                         </div>

@@ -28,4 +28,5 @@ Route::name('admin.')->prefix('admin')/*->middleware('admin')*/->group(function 
     Route::resource('/perfiles', 'PerfilController');
     Route::resource('/departamentos', 'DepartamentoController');
     Route::resource('/municipios', 'MunicipioController');
+    Route::resource('/comunas', 'ComunaController');
 });
