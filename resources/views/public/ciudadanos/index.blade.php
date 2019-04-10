@@ -7,6 +7,19 @@
                 <div class="card">
                     <div class="card-header">Registro de ciudadanos</div>
                     <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" value="{{ request('documento') }}" name="documento" class="form-control" placeholder="Documento">
+                                </div>
+                                <div class="col">
+                                    <input type="submit" class="btn btn-success" value="Buscar ciudadano">
+                                </div>
+                            </div>
+                        </form>
+
+                        <br>
+
                         <table class="table table-sm table-responsive">
                             <thead>
                                 <tr>
@@ -52,7 +65,9 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {{ $ciudadanos->links() }}
+                        {{ $ciudadanos->appends([
+                            'documento' => request('documento')
+                        ])->links() }}
                         <a href="{{ route('public.ciudadanos.create') }}" class="btn btn-primary">Nuevo</a>
                     </div>
                 </div>

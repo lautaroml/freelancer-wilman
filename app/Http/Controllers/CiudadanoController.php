@@ -22,7 +22,7 @@ class CiudadanoController extends Controller
      */
     public function index()
     {
-        $ciudadanos = Ciudadano::where('user_id', \auth()->user()->id)->paginate(10);
+        $ciudadanos = Ciudadano::documento(\request('documento'))->where('user_id', \auth()->user()->id)->paginate(10);
         return view('public.ciudadanos.index', compact('ciudadanos'));
     }
 

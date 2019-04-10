@@ -40,4 +40,9 @@ class Ciudadano extends Model
     {
         return $this->activo == 1 ? 'Si' : 'No';
     }
+
+    public function scopeDocumento($query, $documento)
+    {
+        return $query->where('documento', 'like', '%' .$documento . '%');
+    }
 }
