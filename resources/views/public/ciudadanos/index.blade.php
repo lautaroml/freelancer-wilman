@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Registro de ciudadanos</div>
                     <div class="card-body">
-                        <table class="table table-sm">
+                        <table class="table table-sm" style="overflow-x: auto;">
                             <thead>
                                 <tr>
                                     <th>Nombres</th>
