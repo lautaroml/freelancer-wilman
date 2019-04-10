@@ -14,7 +14,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="departamento">Departamento</label>
-                                {!! Form::select('departamento_id', $departamentos, null, ['class' => 'form-control', 'id' => 'departamento']) !!}
+                                {!! Form::select('departamento_id', $departamentos->prepend('Elija una opción'), null, ['class' => 'form-control', 'id' => 'departamento']) !!}
                             </div>
                             <div class="form-group">
                                 <label for="municipio">Municipio</label>
@@ -35,4 +35,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    @include('share.departamentos')
 @endsection

@@ -54,6 +54,7 @@ class CiudadanoController extends Controller
     {
         $ciudadano = new Ciudadano();
         $ciudadano->nombres = $request->get('nombres');
+        $ciudadano->documento = $request->get('documento');
         $ciudadano->telefono = $request->get('telefono');
         $ciudadano->telefono_2 = $request->get('telefono_2');
         $ciudadano->telefono_3 = $request->get('telefono_3');
@@ -113,6 +114,7 @@ class CiudadanoController extends Controller
     public function update(Request $request, Ciudadano $ciudadano)
     {
         $ciudadano->nombres = $request->get('nombres');
+        $ciudadano->documento = $request->get('documento');
         $ciudadano->telefono = $request->get('telefono');
         $ciudadano->telefono_2 = $request->get('telefono_2');
         $ciudadano->telefono_3 = $request->get('telefono_3');

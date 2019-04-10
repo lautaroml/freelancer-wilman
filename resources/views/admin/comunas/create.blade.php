@@ -14,11 +14,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="departamento">Departamento</label>
-                                {!! Form::select('departamento_id', $departamentos, null, ['class' => 'form-control', 'id' => 'departamento', 'required' => true]) !!}
+                                {!! Form::select('departamento_id', $departamentos->prepend('Elija una opción'), null, ['class' => 'form-control', 'id' => 'departamento', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="municipio">Municipio</label>
-                                {!! Form::select('municipio_id', $municipios, null, ['class' => 'form-control', 'id' => 'municipio', 'required' => true]) !!}
+                                {!! Form::select('municipio_id', ['' => 'Elija un Departamento'], null, ['class' => 'form-control', 'id' => 'municipio', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="latitud">Latitud</label>
@@ -35,4 +35,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    @include('share.departamentos')
 @endsection

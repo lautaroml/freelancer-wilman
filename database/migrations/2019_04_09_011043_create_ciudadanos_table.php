@@ -15,6 +15,7 @@ class CreateCiudadanosTable extends Migration
     {
         Schema::create('ciudadanos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('documento');
             $table->string('nombres');
             $table->string('telefono');
             $table->string('telefono_2')->nullable();

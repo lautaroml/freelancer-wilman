@@ -14,7 +14,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="comuna">Comuna</label>
-                                {!! Form::select('comuna_id', $comunas, null, ['class' => 'form-control', 'id' => 'comuna', 'required' => true]) !!}
+                                {!! Form::select('comuna_id', $comunas->prepend('Elija una opción'), null, ['class' => 'form-control', 'id' => 'comuna', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="barrio">Barrios</label>
@@ -31,4 +31,9 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    @include('share.comunas')
+    @include('share.barrios')
 @endsection

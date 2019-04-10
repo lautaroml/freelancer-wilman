@@ -13,16 +13,16 @@
                                 {!! Form::text('nombre', null, ['class' => 'form-control', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
-                                <label for="comuna">Comuna</label>
-                                {!! Form::select('comuna_id', $comunas, null, ['class' => 'form-control', 'id' => 'comuna', 'required' => true]) !!}
+                                <label for="departamento">Departamento</label>
+                                {!! Form::select('departamento_id', $departamentos->prepend('Elija una opción'), null, ['class' => 'form-control', 'id' => 'departamento', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="municipio">Municipio</label>
-                                {!! Form::select('municipio_id', $municipios, null, ['class' => 'form-control', 'id' => 'municipio', 'required' => true]) !!}
+                                {!! Form::select('municipio_id', ['' => 'Elija un Departamento'], null, ['class' => 'form-control', 'id' => 'municipio', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
-                                <label for="departamento">Departamento</label>
-                                {!! Form::select('departamento_id', $departamentos, null, ['class' => 'form-control', 'id' => 'departamento', 'required' => true]) !!}
+                                <label for="comuna">Comuna</label>
+                                {!! Form::select('comuna_id', ['' => 'Elija un Municipio'], null, ['class' => 'form-control', 'id' => 'comuna', 'required' => true]) !!}
                             </div>
                             <button type="submit" class="btn btn-primary">Confirmar</button>
                         {!! Form::close() !!}
@@ -31,4 +31,9 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    @include('share.departamentos')
+    @include('share.municipios')
 @endsection

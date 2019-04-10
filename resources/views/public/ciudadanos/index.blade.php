@@ -11,9 +11,10 @@
                             <thead>
                                 <tr>
                                     <th>Nombres</th>
+                                    <th>Documento</th>
                                     <th>Teléfono</th>
-                                    <th>Teléfono 2</th>
-                                    <th>Teléfono 3</th>
+                                    <th>Teléfono2</th>
+                                    <th>Teléfono3</th>
                                     <th>Dirección</th>
                                     <th>Departamento</th>
                                     <th>Municipio</th>
@@ -30,6 +31,7 @@
                             @foreach($ciudadanos as $ciudadano)
                                 <tr>
                                     <td>{{ $ciudadano->nombres }}</td>
+                                    <td>{{ $ciudadano->documento }}</td>
                                     <td>{{ $ciudadano->telefono }}</td>
                                     <td>{{ $ciudadano->telefono_2 }}</td>
                                     <td>{{ $ciudadano->telefono_3 }}</td>

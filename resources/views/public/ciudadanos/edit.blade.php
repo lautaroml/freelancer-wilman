@@ -13,6 +13,10 @@
                                 {!! Form::text('nombres', null, ['class' => 'form-control', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
+                                <label for="documento">Documento</label>
+                                {!! Form::text('documento', null, ['class' => 'form-control', 'required' => true]) !!}
+                            </div>
+                            <div class="form-group">
                                 <label for="telefono">Teléfono</label>
                                 {!! Form::text('telefono', null, ['class' => 'form-control', 'required' => true]) !!}
                             </div>
@@ -30,7 +34,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="departamento">Departamento</label>
-                                {!! Form::select('departamento_id', $departamentos, null, ['class' => 'form-control', 'id' => 'departamento', 'required' => true]) !!}
+                                {!! Form::select('departamento_id', $departamentos->prepend('Elija una opción'), null, ['class' => 'form-control', 'id' => 'departamento', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="municipio">Municipio</label>
@@ -42,15 +46,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="barrio">Barrio</label>
-                                {!! Form::select('barrio_id', $barrios, null, ['class' => 'form-control', 'id' => 'barrios', 'required' => true]) !!}
+                                {!! Form::select('barrio_id', $barrios, null, ['class' => 'form-control', 'id' => 'barrio', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="puesto">Puesto</label>
-                                {!! Form::select('puesto_id', $puestos, null, ['class' => 'form-control', 'id' => 'puestos', 'required' => true]) !!}
+                                {!! Form::select('puesto_id', $puestos, null, ['class' => 'form-control', 'id' => 'puesto', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="mesa">Mesas</label>
-                                {!! Form::select('mesa_id', $mesas, null, ['class' => 'form-control', 'id' => 'mesas', 'required' => true]) !!}
+                                {!! Form::select('mesa_id', $mesas, null, ['class' => 'form-control', 'id' => 'mesa', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
@@ -67,4 +71,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    @include('share.departamentos')
+    @include('share.municipios')
+    @include('share.comunas')
+    @include('share.barrios')
+    @include('share.puestos')
 @endsection
