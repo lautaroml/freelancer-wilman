@@ -71,8 +71,8 @@ class CiudadanoController extends Controller
         $ciudadano->puesto_id = $request->get('puesto_id');
         $ciudadano->mesa_id = $request->get('mesa_id');
         $ciudadano->email = $request->get('email');
-        $ciudadano->activo = $request->get('activo');
-        $ciudadano->user_id = (bool) Auth::user()->id;
+        $ciudadano->activo = (bool) $request->get('activo');
+        $ciudadano->user_id = Auth::user()->id;
         $ciudadano->save();
 
         return redirect()->route('public.ciudadanos.index')->with(['success' => 'Ciudadano creado correctamente!']);
@@ -131,8 +131,8 @@ class CiudadanoController extends Controller
         $ciudadano->puesto_id = $request->get('puesto_id');
         $ciudadano->mesa_id = $request->get('mesa_id');
         $ciudadano->email = $request->get('email');
-        $ciudadano->activo = $request->get('activo');
-        $ciudadano->user_id = (bool) Auth::user()->id;
+        $ciudadano->activo = (bool) $request->get('activo');
+        $ciudadano->user_id = Auth::user()->id;
         $ciudadano->save();
 
         return redirect()->route('public.ciudadanos.index')->with(['success' => 'Ciudadano editado correctamente!']);
