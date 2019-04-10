@@ -11,6 +11,7 @@ use App\Municipio;
 use App\Puesto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class CiudadanoController extends Controller
 {
@@ -21,7 +22,7 @@ class CiudadanoController extends Controller
      */
     public function index()
     {
-        $ciudadanos = Ciudadano::paginate(10);
+        $ciudadanos = Ciudadano::where('user_id', \auth()->user()->id)->paginate(10);
         return view('public.ciudadanos.index', compact('ciudadanos'));
     }
 
@@ -52,6 +53,10 @@ class CiudadanoController extends Controller
      */
     public function store(Request $request)
     {
+        if (Ciudadano::where('documento', $request->get('documento'))->first()) {
+            return redirect()->back()->with(['error' => 'El ciudadano ya existe!'])->withInput(Input::all());
+        }
+
         $ciudadano = new Ciudadano();
         $ciudadano->nombres = $request->get('nombres');
         $ciudadano->documento = $request->get('documento');
