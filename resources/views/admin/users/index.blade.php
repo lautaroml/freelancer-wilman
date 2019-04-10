@@ -12,6 +12,8 @@
                                 <tr>
                                     <th>Nombres</th>
                                     <th>E-mail</th>
+                                    <th>Meta</th>
+                                    <th>Fecha</th>
                                     <th>Perfil</th>
                                     <th>Herramientas</th>
                                 </tr>
@@ -21,6 +23,8 @@
                                 <tr>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td>{{$user->ciudadanos->count()}}/{{ @$user->meta->total }}</td>
+                                    <td>{{ @$user->meta->fecha }}</td>
                                     <td>{{ $user->perfil->nombre }}</td>
                                     <td>
                                         <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-outline-success">Editar</a>

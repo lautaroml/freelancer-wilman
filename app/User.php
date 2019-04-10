@@ -46,4 +46,14 @@ class User extends Authenticatable
     {
         return $this->perfil->nombre == 'Admin';
     }
+
+    public function meta()
+    {
+        return $this->hasOne('App\Meta');
+    }
+
+    public function ciudadanos()
+    {
+        return $this->hasMany('App\Ciudadano');
+    }
 }

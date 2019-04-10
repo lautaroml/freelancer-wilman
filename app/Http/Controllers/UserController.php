@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Meta;
 use App\Perfil;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -39,12 +41,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $validate = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $validate->validate();
+
         $user = new User();
         $user->name = $request->get('name');
         $user->email = $request->get('email');
         $user->password = Hash::make($request->get('password'));
         $user->perfil_id = $request->get('perfil_id');
         $user->save();
+
+        if ($request->get('total') && $request->get('fecha')) {
+            $meta = new Meta();
+            $meta->user_id = $user->id;
+            $meta->total = $request->get('total');
+            $meta->fecha = $request->get('fecha');
+            $meta->save();
+        }
 
         return redirect()->route('admin.users.index')->with(['success' => 'Usuario creado correctamente!']);
     }
@@ -69,6 +87,9 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $perfiles = Perfil::all()->pluck('nombre', 'id');
+        $meta = Meta::where('user_id', $user->id)->first();
+        @$user->total = $meta->total;
+        @$user->fecha = $meta->fecha;
         return view('admin.users.edit', compact('user', 'perfiles'));
     }
 
@@ -85,6 +106,17 @@ class UserController extends Controller
         $user->email = $request->get('email');
         $user->perfil_id = $request->get('perfil_id');
         $user->save();
+
+        if ($request->get('total') && $request->get('fecha')) {
+            $meta = Meta::where('user_id', $user->id)->first();
+            if (is_null($meta)) {
+                $meta = new Meta();
+                $meta->user_id = $user->id;
+            }
+            $meta->total = $request->get('total');
+            $meta->fecha = $request->get('fecha');
+            $meta->save();
+        }
 
         return redirect()->route('admin.users.index')->with(['success' => 'Usuario editado correctamente!']);
     }
