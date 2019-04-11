@@ -41,12 +41,12 @@
                                     <a class="dropdown-item" href="{{ route('admin.comunas.index') }}">Comunas</a>
                                     <a class="dropdown-item" href="{{ route('admin.barrios.index') }}">Barrios</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('admin.reportes.municipios') }}">Reportes Municipios</a>
-                                    <a class="dropdown-item" href="{{ route('admin.reportes.comunas') }}">Reportes Comunas</a>
-                                    <a class="dropdown-item" href="{{ route('admin.reportes.barrios') }}">Reportes Barrios</a>
-                                    <a class="dropdown-item" href="{{ route('admin.reportes.puestos') }}">Reportes Puestos</a>
-                                    <a class="dropdown-item" href="{{ route('admin.reportes.mesas') }}">Reportes Mesas</a>
-                                    <a class="dropdown-item" href="{{ route('admin.reportes.usuarios') }}">Reportes Usuarios</a>
+                                    <a class="dropdown-item" href="{{ route('admin.reportes.municipios', ['type' => 'bar']) }}">Reportes Municipios</a>
+                                    <a class="dropdown-item" href="{{ route('admin.reportes.comunas', ['type' => 'bar']) }}">Reportes Comunas</a>
+                                    <a class="dropdown-item" href="{{ route('admin.reportes.barrios', ['type' => 'bar']) }}">Reportes Barrios</a>
+                                    <a class="dropdown-item" href="{{ route('admin.reportes.puestos', ['type' => 'bar']) }}">Reportes Puestos</a>
+                                    <a class="dropdown-item" href="{{ route('admin.reportes.mesas', ['type' => 'bar']) }}">Reportes Mesas</a>
+                                    <a class="dropdown-item" href="{{ route('admin.reportes.usuarios', ['type' => 'bar']) }}">Reportes Usuarios</a>
                                 </div>
                             </li>
                         </ul>

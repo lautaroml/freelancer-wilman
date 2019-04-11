@@ -5,7 +5,15 @@
         <div class="row justify-content-center">
             <div class="col-md-11">
                 <div class="card">
-                    <div class="card-header">Ciudadanos por {{ ucfirst(Request::segment(3)) }}</div>
+                    <div class="card-header">
+                        Ciudadanos por {{ ucfirst(Request::segment(3)) }}
+                        <span class="float-right">
+                            <a href="?type=bar">Barra</a>
+                            <a href="?type=pie">Torta</a>
+                            <a href="?type=radar">Radar</a>
+                            <a href="?type=doughnut">Dona</a>
+                        </span>
+                    </div>
 
                     <div class="card-body">
                         <canvas id="myChart" width="600" height="400"></canvas>
@@ -25,7 +33,7 @@
         });
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
-            type: 'bar',
+            type: "{{ request()->get('type') }}",
             data: {
                 labels: @json($label),
                 datasets: [{
