@@ -195,7 +195,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.js"></script>
     <script>
         // Set the date we're counting down to
-        var countDownDate = new Date( "13/04/2019".replace( /(\d{2})\/(\d{2})\/(\d{4})/, "$2/$1/$3") );
+        var countDownDate = new Date( "{{ auth()->user()->meta->fecha }}".replace( /(\d{2})\/(\d{2})\/(\d{4})/, "$2/$1/$3") );
 
         // Update the count down every 1 second
         var x = setInterval(function() {

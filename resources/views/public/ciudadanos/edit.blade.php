@@ -24,7 +24,8 @@
                         {!! Form::model($ciudadano, ['route' => ['public.ciudadanos.update', $ciudadano->id], 'method' => 'put']) !!}
                             <div class="form-group">
                                 <label for="documento">Documento</label>
-                                {!! Form::text('documento', null, ['class' => 'form-control', 'required' => true]) !!}
+                                {!! Form::text('documento', null, ['class' => 'form-control', 'required' => true, 'id' => 'documento']) !!}
+                                <small id="documentHelp" class="form-text text-muted" style="display: none; color: red !important;">Ya existe un ciudadano con ese Documento.</small>
                             </div>
                             <div class="form-group">
                                 <label for="nombre">Nombres</label>
@@ -78,7 +79,7 @@
                                 <label for="activo">Activo</label>
                                 {!! Form::select('activo', [1 => 'Si', 0 => 'No'], null, ['class' => 'form-control', 'id' => 'mesas', 'required' => true]) !!}
                             </div>
-                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                            <button id="submit-button" type="submit" class="btn btn-primary">Confirmar</button>
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -93,5 +94,45 @@
     @include('share.comunas')
     @include('share.barrios')
     @include('share.puestos')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#documento').on("keyup input", function(){
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                /* Get input value on change */
+                let inputVal = $(this).val();
+                if(inputVal.length){
+                    $('#ajax').empty();
+                    $.ajax({
+                        type: "POST",
+                        url: "/foo",
+                        data: {val: inputVal},
+                        success: function(data){
+                            validate(data);
+                        }
+                    });
+                } else{
+                    $('#documentHelp').hide();
+                    $('#documento').removeClass('is-invalid');
+                    $('#submit-button').show();
+                }
+            });
+        });
 
+        function validate(response) {
+            if (response.status == 'error') {
+                $('#documentHelp').show();
+                $('#documento').addClass('is-invalid');
+                $('#submit-button').hide();
+            } else {
+                $('#documentHelp').hide();
+                $('#documento').removeClass('is-invalid');
+                $('#documento').addClass('is-valid');
+                $('#submit-button').show();
+            }
+        }
+    </script>
 @endsection
