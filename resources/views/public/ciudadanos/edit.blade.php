@@ -1,6 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            @if(session()->has('errors'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    @foreach ($errors->all() as $error)
+                        <div>{{ $error }}</div>
+                    @endforeach
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -9,12 +23,12 @@
                     <div class="card-body">
                         {!! Form::model($ciudadano, ['route' => ['public.ciudadanos.update', $ciudadano->id], 'method' => 'put']) !!}
                             <div class="form-group">
-                                <label for="nombre">Nombres</label>
-                                {!! Form::text('nombres', null, ['class' => 'form-control', 'required' => true]) !!}
-                            </div>
-                            <div class="form-group">
                                 <label for="documento">Documento</label>
                                 {!! Form::text('documento', null, ['class' => 'form-control', 'required' => true]) !!}
+                            </div>
+                            <div class="form-group">
+                                <label for="nombre">Nombres</label>
+                                {!! Form::text('nombres', null, ['class' => 'form-control', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="telefono">Teléfono</label>
@@ -79,4 +93,5 @@
     @include('share.comunas')
     @include('share.barrios')
     @include('share.puestos')
+
 @endsection

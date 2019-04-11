@@ -12,6 +12,7 @@ use App\Puesto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 
 class CiudadanoController extends Controller
 {
@@ -56,6 +57,12 @@ class CiudadanoController extends Controller
         if (Ciudadano::where('documento', $request->get('documento'))->first()) {
             return redirect()->back()->with(['error' => 'El ciudadano ya existe!'])->withInput(Input::all());
         }
+
+        $validate = Validator::make($request->all(), [
+            'documento' => ['required', 'numeric', 'unique:ciudadanos']
+        ]);
+
+        $validate->validate();
 
         $ciudadano = new Ciudadano();
         $ciudadano->nombres = $request->get('nombres');

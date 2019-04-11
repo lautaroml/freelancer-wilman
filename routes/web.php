@@ -75,3 +75,12 @@ Route::post('ajax/mesas', function(){
     $mesas = \App\Mesa::where('puesto_id', request()->get('id'))->pluck('nombre', 'id');
     return $mesas->toJson();
 });
+
+Route::post('foo', function(){
+    $ciudadanos = \App\Ciudadano::where('documento', 'like' , '%' . request()->get('val') .'%')->first();
+    if ($ciudadanos) {
+        return response()->json(['status' => 'error']);
+    } else {
+        return response()->json(['status' => 'success']);
+    }
+});

@@ -1,6 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            @if(session()->has('errors'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    @foreach ($errors->all() as $error)
+                        <div>{{ $error }}</div>
+                    @endforeach
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -9,12 +23,13 @@
                     <div class="card-body">
                         {!! Form::open(['route' => ['public.ciudadanos.store'], 'method' => 'post']) !!}
                             <div class="form-group">
-                                <label for="nombre">Nombres</label>
-                                {!! Form::text('nombres', null, ['class' => 'form-control', 'required' => true]) !!}
+                                <label for="documento">Documento</label>
+                                {!! Form::text('documento', null, ['class' => 'form-control', 'required' => true, 'id' => 'documento']) !!}
+                                <small id="documentHelp" class="form-text text-muted" style="display: none; color: red !important;">Ya existe un ciudadano con ese Documento.</small>
                             </div>
                             <div class="form-group">
-                                <label for="documento">Documento</label>
-                                {!! Form::text('documento', null, ['class' => 'form-control', 'required' => true]) !!}
+                                <label for="nombre">Nombres</label>
+                                {!! Form::text('nombres', null, ['class' => 'form-control', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="telefono">Teléfono</label>
@@ -83,4 +98,42 @@
     @include('share.comunas')
     @include('share.barrios')
     @include('share.puestos')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#documento').on("keyup input", function(){
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                /* Get input value on change */
+                let inputVal = $(this).val();
+                if(inputVal.length){
+                    $('#ajax').empty();
+                    $.ajax({
+                        type: "POST",
+                        url: "/foo",
+                        data: {val: inputVal},
+                        success: function(data){
+                            validate(data);
+                        }
+                    });
+                } else{
+                    $('#documentHelp').hide();
+                    $('#documento').removeClass('is-invalid');
+                }
+            });
+        });
+        
+        function validate(response) {
+            if (response.status == 'error') {
+                $('#documentHelp').show();
+                $('#documento').addClass('is-invalid');
+            } else {
+                $('#documentHelp').hide();
+                $('#documento').removeClass('is-invalid');
+                $('#documento').addClass('is-valid');
+            }
+        }
+    </script>
 @endsection
