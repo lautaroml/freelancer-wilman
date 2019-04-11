@@ -37,10 +37,16 @@
                                     <a class="dropdown-item" href="{{ route('admin.puestos.index') }}">Puesto</a>
                                     <a class="dropdown-item" href="{{ route('admin.mesas.index') }}">Mesas</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('admin.departamentos.index') }}">Departamentos</a>
                                     <a class="dropdown-item" href="{{ route('admin.municipios.index') }}">Municipios</a>
                                     <a class="dropdown-item" href="{{ route('admin.comunas.index') }}">Comunas</a>
                                     <a class="dropdown-item" href="{{ route('admin.barrios.index') }}">Barrios</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{ route('admin.reportes.municipios') }}">Reportes Municipios</a>
+                                    <a class="dropdown-item" href="{{ route('admin.reportes.comunas') }}">Reportes Comunas</a>
+                                    <a class="dropdown-item" href="{{ route('admin.reportes.barrios') }}">Reportes Barrios</a>
+                                    <a class="dropdown-item" href="{{ route('admin.reportes.puestos') }}">Reportes Puestos</a>
+                                    <a class="dropdown-item" href="{{ route('admin.reportes.mesas') }}">Reportes Mesas</a>
+                                    <a class="dropdown-item" href="{{ route('admin.reportes.usuarios') }}">Reportes Usuarios</a>
                                 </div>
                             </li>
                         </ul>

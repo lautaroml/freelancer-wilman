@@ -30,6 +30,15 @@ Route::name('admin.')->prefix('admin')/*->middleware('admin')*/->group(function 
     Route::resource('/barrios', 'BarrioController');
     Route::resource('/puestos', 'PuestoController');
     Route::resource('/mesas', 'MesaController');
+
+    Route::name('reportes.')->prefix('reportes')->group(function () {
+        Route::get('municipios', 'ReportController@municipios')->name('municipios');
+        Route::get('comunas', 'ReportController@comunas')->name('comunas');
+        Route::get('barrios', 'ReportController@barrios')->name('barrios');
+        Route::get('puestos', 'ReportController@puestos')->name('puestos');
+        Route::get('mesas', 'ReportController@mesas')->name('mesas');
+        Route::get('usuarios', 'ReportController@usuarios')->name('usuarios');
+    });
 });
 
 Route::name('public.')->prefix('public')/*->middleware('admin')*/->group(function () {

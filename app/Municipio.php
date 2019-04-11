@@ -10,4 +10,9 @@ class Municipio extends Model
     {
         return $this->belongsTo('App\Departamento');
     }
+
+    public function ciudadanos()
+    {
+        return $this->hasMany('App\Ciudadano');
+    }
 }
