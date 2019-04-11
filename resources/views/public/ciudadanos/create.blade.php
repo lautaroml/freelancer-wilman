@@ -83,7 +83,7 @@
                                 <label for="activo">Activo</label>
                                 {!! Form::select('activo', [1 => 'Si', 0 => 'No'], null, ['class' => 'form-control', 'id' => 'mesas', 'required' => true]) !!}
                             </div>
-                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                            <button id="submit-button" type="submit" class="btn btn-primary">Confirmar</button>
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -121,6 +121,7 @@
                 } else{
                     $('#documentHelp').hide();
                     $('#documento').removeClass('is-invalid');
+                    $('#submit-button').show();
                 }
             });
         });
@@ -129,10 +130,12 @@
             if (response.status == 'error') {
                 $('#documentHelp').show();
                 $('#documento').addClass('is-invalid');
+                $('#submit-button').hide();
             } else {
                 $('#documentHelp').hide();
                 $('#documento').removeClass('is-invalid');
                 $('#documento').addClass('is-valid');
+                $('#submit-button').show();
             }
         }
     </script>
