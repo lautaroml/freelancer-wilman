@@ -39,6 +39,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin'])->group(fun
         Route::get('puestos', 'ReportController@puestos')->name('puestos');
         Route::get('mesas', 'ReportController@mesas')->name('mesas');
         Route::get('usuarios', 'ReportController@usuarios')->name('usuarios');
+        Route::get('activos', 'ReportController@activos')->name('activos');
     });
 });
 

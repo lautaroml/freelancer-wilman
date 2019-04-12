@@ -115,4 +115,20 @@ class ReportController extends Controller
 
         return view('admin.reportes.report', compact('label', 'data'));
     }
+
+    public function activos()
+    {
+        $results = Ciudadano::select('activo', DB::raw('COUNT(id) as amount'))
+            ->groupBy('activo')
+            ->get();
+
+        $label = ['inactivos', 'activos'];
+        $data = [];
+
+        foreach ($results as $result) {
+            $data[] = $result->amount;
+        }
+
+        return view('admin.reportes.report', compact('label', 'data'));
+    }
 }
