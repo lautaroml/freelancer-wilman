@@ -57,27 +57,23 @@
                             </div>
                             <div class="form-group">
                                 <label for="comuna">Comuna</label>
-                                <select name="comuna_id" id="comuna" class="form-control canBeDisabled" required></select>
-                                {{--{!! Form::select('comuna_id', $comunas, null, ['class' => 'form-control canBeDisabled', 'id' => 'comuna', 'required' => true]) !!}--}}
+                                <select name="comuna_id" id="comuna" class="form-control canBeDisabled"></select>
                             </div>
                             <div class="form-group">
                                 <label for="barrio">Barrio</label>
-                                <select name="barrio_id" id="barrio" class="form-control canBeDisabled" required></select>
-                                {{--{!! Form::select('barrio_id', $barrios, null, ['class' => 'form-control canBeDisabled', 'id' => 'barrios', 'required' => true]) !!}--}}
+                                <select name="barrio_id" id="barrio" class="form-control canBeDisabled"></select>
                             </div>
                             <div class="form-group">
                                 <label for="puesto">Puesto</label>
-                                <select name="puesto_id" id="puesto" class="form-control canBeDisabled" required></select>
-                                {{--{!! Form::select('puesto_id', $puestos, null, ['class' => 'form-control canBeDisabled', 'id' => 'puestos', 'required' => true]) !!}--}}
+                                <select name="puesto_id" id="puesto" class="form-control canBeDisabled"></select>
                             </div>
                             <div class="form-group">
                                 <label for="mesa">Mesas</label>
-                                <select name="mesa_id" id="mesa" class="form-control canBeDisabled" required></select>
-                                {{--{!! Form::select('mesa_id', $mesas, null, ['class' => 'form-control canBeDisabled', 'id' => 'mesas', 'required' => true]) !!}--}}
+                                <select name="mesa_id" id="mesa" class="form-control canBeDisabled"></select>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                {!! Form::text('email', null, ['class' => 'form-control canBeDisabled', 'required' => true]) !!}
+                                {!! Form::text('email', null, ['class' => 'form-control canBeDisabled']) !!}
                             </div>
                             <div class="form-group">
                                 <label for="activo">Activo</label>

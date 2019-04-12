@@ -179,7 +179,7 @@
                             <div class="card-center">
                         <span class="card-value">
                             {{ \App\Ciudadano::count() }}/
-                            {{ \App\Meta::sum('total') }}
+                            {{ \App\Setting::first()->total }}
                         </span>
                                 <div class="card-label">Global</div>
                             </div>
@@ -195,7 +195,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.js"></script>
     <script>
         // Set the date we're counting down to
-        var countDownDate = new Date( "{{ auth()->user()->meta->fecha }}".replace( /(\d{2})\/(\d{2})\/(\d{4})/, "$2/$1/$3") );
+        var countDownDate = new Date( "{{ \App\Setting::first()->fecha }}".replace( /(\d{2})\/(\d{2})\/(\d{4})/, "$2/$1/$3") );
 
         // Update the count down every 1 second
         var x = setInterval(function() {
@@ -240,7 +240,7 @@
             $('.card-global').circleProgress({
                 startAngle: 1.5 * Math.PI,
                 lineCap: 'round',
-                value: parseInt('{{ \App\Ciudadano::count() }}', 10) / parseInt('{{ \App\Meta::sum('total') }}', 10),
+                value: parseInt('{{ \App\Ciudadano::count() }}', 10) / parseInt('{{ \App\Setting::first()->total }}', 10),
                 emptyFill: '#5a5959',
                 fill: { 'color': '#cdfeac' }
             });

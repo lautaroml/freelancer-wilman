@@ -57,23 +57,23 @@
                             </div>
                             <div class="form-group">
                                 <label for="comuna">Comuna</label>
-                                {!! Form::select('comuna_id', $comunas, null, ['class' => 'form-control', 'id' => 'comuna', 'required' => true]) !!}
+                                {!! Form::select('comuna_id', $comunas, null, ['class' => 'form-control', 'id' => 'comuna']) !!}
                             </div>
                             <div class="form-group">
                                 <label for="barrio">Barrio</label>
-                                {!! Form::select('barrio_id', $barrios, null, ['class' => 'form-control', 'id' => 'barrio', 'required' => true]) !!}
+                                {!! Form::select('barrio_id', $barrios, null, ['class' => 'form-control', 'id' => 'barrio']) !!}
                             </div>
                             <div class="form-group">
                                 <label for="puesto">Puesto</label>
-                                {!! Form::select('puesto_id', $puestos, null, ['class' => 'form-control', 'id' => 'puesto', 'required' => true]) !!}
+                                {!! Form::select('puesto_id', $puestos, null, ['class' => 'form-control', 'id' => 'puesto']) !!}
                             </div>
                             <div class="form-group">
                                 <label for="mesa">Mesas</label>
-                                {!! Form::select('mesa_id', $mesas, null, ['class' => 'form-control', 'id' => 'mesa', 'required' => true]) !!}
+                                {!! Form::select('mesa_id', $mesas, null, ['class' => 'form-control', 'id' => 'mesa']) !!}
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                {!! Form::text('email', null, ['class' => 'form-control', 'required' => true]) !!}
+                                {!! Form::text('email', null, ['class' => 'form-control']) !!}
                             </div>
                             <div class="form-group">
                                 <label for="activo">Activo</label>
