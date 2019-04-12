@@ -122,10 +122,11 @@ class ReportController extends Controller
             ->groupBy('activo')
             ->get();
 
-        $label = ['inactivos', 'activos'];
+        $label = [];
         $data = [];
 
         foreach ($results as $result) {
+            $label[] = $result->activo ? 'activo' : 'inactivo';
             $data[] = $result->amount;
         }
 
