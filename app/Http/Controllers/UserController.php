@@ -56,11 +56,11 @@ class UserController extends Controller
         $user->perfil_id = $request->get('perfil_id');
         $user->save();
 
-        if ($request->get('total') && $request->get('fecha')) {
+        if ($request->get('total')) {
             $meta = new Meta();
             $meta->user_id = $user->id;
             $meta->total = $request->get('total');
-            $meta->fecha = $request->get('fecha');
+            //$meta->fecha = $request->get('fecha');
             $meta->save();
         }
 
@@ -107,14 +107,14 @@ class UserController extends Controller
         $user->perfil_id = $request->get('perfil_id');
         $user->save();
 
-        if ($request->get('total') && $request->get('fecha')) {
+        if ($request->get('total')) {
             $meta = Meta::where('user_id', $user->id)->first();
             if (is_null($meta)) {
                 $meta = new Meta();
                 $meta->user_id = $user->id;
             }
             $meta->total = $request->get('total');
-            $meta->fecha = $request->get('fecha');
+            //$meta->fecha = $request->get('fecha');
             $meta->save();
         }
 

@@ -17,7 +17,7 @@ class CreateMetasTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->bigInteger('total');
-            $table->date('fecha');
+            //$table->date('fecha');
             $table->timestamps();
         });
     }
