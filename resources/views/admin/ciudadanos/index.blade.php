@@ -150,7 +150,16 @@
                             </tbody>
                         </table>
                         {{ $ciudadanos->appends([
-                            'documento' => request('documento')
+                            'documento' => request('documento'),
+                            'nombres' => request('nombres'),
+                            'departamento_id' => request('departamento_id'),
+                            'municipio_id' => request('municipio_id'),
+                            'comuna_id' => request('comuna_id'),
+                            'barrio_id' => request('barrio_id'),
+                            'puesto_id' => request('puesto_id'),
+                            'mesa_id' => request('mesa_id'),
+                            'user_id' => request('user_id'),
+                            'activo' => request('activo'),
                         ])->links() }}
                         <a href="{{ route('public.ciudadanos.create') }}" class="btn btn-primary">Nuevo</a>
                     </div>
