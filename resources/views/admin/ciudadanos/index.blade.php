@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('css')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+@endsection
+
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -136,9 +140,9 @@
                                     <td>{{ $ciudadano->departamento->nombre }}</td>
                                     <td>{{ $ciudadano->municipio->nombre }}</td>
                                     <td>{{ $ciudadano->comuna->nombre }}</td>
-                                    <td>{{ $ciudadano->barrio->nombre }}</td>
-                                    <td>{{ $ciudadano->puesto->nombre }}</td>
-                                    <td>{{ $ciudadano->mesa->nombre }}</td>
+                                    <td>{{ @$ciudadano->barrio->nombre }}</td>
+                                    <td>{{ @$ciudadano->puesto->nombre }}</td>
+                                    <td>{{ @$ciudadano->mesa->nombre }}</td>
                                     <td>{{ $ciudadano->email }}</td>
                                     <td>{{ $ciudadano->isActive() }}</td>
 
@@ -170,6 +174,19 @@
 @endsection
 
 @section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('select').select2({
+                width: '100%',
+                "language": {
+                    "noResults": function(){
+                        return "No se han encontrado resultados";
+                    }
+                },
+            });
+        });
+    </script>
     <script>
         $( document ).on( "municipiosLoaded", function() {
             $('#municipio').val('{{ request('municipio_id') }}').trigger('change');

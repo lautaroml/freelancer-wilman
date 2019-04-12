@@ -78,7 +78,7 @@ class CiudadanoController extends Controller
 
         $validate = Validator::make($request->all(), [
             'documento' => ['required', 'numeric', 'unique:ciudadanos'],
-            'email' => ['email', 'unique:ciudadanos']
+            'email' => ['email', 'nullable', 'unique:ciudadanos']
         ]);
 
         $validate->validate();

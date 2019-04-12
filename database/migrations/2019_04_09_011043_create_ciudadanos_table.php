@@ -24,10 +24,10 @@ class CreateCiudadanosTable extends Migration
             $table->unsignedInteger('departamento_id');
             $table->unsignedInteger('municipio_id');
             $table->unsignedInteger('comuna_id');
-            $table->unsignedInteger('barrio_id');
-            $table->unsignedInteger('puesto_id');
-            $table->unsignedInteger('mesa_id');
-            $table->text('email');
+            $table->unsignedInteger('barrio_id')->nullable();
+            $table->unsignedInteger('puesto_id')->nullable();
+            $table->unsignedInteger('mesa_id')->nullable();
+            $table->text('email')->nullable();
             $table->boolean('activo');
             $table->unsignedInteger('user_id');
             $table->timestamps();
