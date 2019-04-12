@@ -29,59 +29,59 @@
                             </div>
                             <div class="form-group">
                                 <label for="nombre">Nombres</label>
-                                {!! Form::text('nombres', null, ['class' => 'form-control', 'required' => true]) !!}
+                                {!! Form::text('nombres', null, ['class' => 'form-control canBeDisabled', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="telefono">Teléfono</label>
-                                {!! Form::text('telefono', null, ['class' => 'form-control', 'required' => true]) !!}
+                                {!! Form::text('telefono', null, ['class' => 'form-control canBeDisabled', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="telefono_2">Teléfono 2</label>
-                                {!! Form::text('telefono_2', null, ['class' => 'form-control']) !!}
+                                {!! Form::text('telefono_2', null, ['class' => 'form-control canBeDisabled']) !!}
                             </div>
                             <div class="form-group">
                                 <label for="telefono_3">Teléfono 3</label>
-                                {!! Form::text('telefono_3', null, ['class' => 'form-control']) !!}
+                                {!! Form::text('telefono_3', null, ['class' => 'form-control canBeDisabled']) !!}
                             </div>
                             <div class="form-group">
                                 <label for="direccion">Dirección</label>
-                                {!! Form::text('direccion', null, ['class' => 'form-control', 'required' => true]) !!}
+                                {!! Form::text('direccion', null, ['class' => 'form-control canBeDisabled', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="departamento">Departamento</label>
-                                {!! Form::select('departamento_id', $departamentos->prepend('Elija una opción'), null, ['class' => 'form-control', 'id' => 'departamento', 'required' => true]) !!}
+                                {!! Form::select('departamento_id', $departamentos->prepend('Elija una opción'), null, ['class' => 'form-control canBeDisabled', 'id' => 'departamento', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="municipio">Municipio</label>
-                                <select name="municipio_id" id="municipio" class="form-control" required></select>
+                                <select name="municipio_id" id="municipio" class="form-control canBeDisabled" required></select>
                             </div>
                             <div class="form-group">
                                 <label for="comuna">Comuna</label>
-                                <select name="comuna_id" id="comuna" class="form-control" required></select>
-                                {{--{!! Form::select('comuna_id', $comunas, null, ['class' => 'form-control', 'id' => 'comuna', 'required' => true]) !!}--}}
+                                <select name="comuna_id" id="comuna" class="form-control canBeDisabled" required></select>
+                                {{--{!! Form::select('comuna_id', $comunas, null, ['class' => 'form-control canBeDisabled', 'id' => 'comuna', 'required' => true]) !!}--}}
                             </div>
                             <div class="form-group">
                                 <label for="barrio">Barrio</label>
-                                <select name="barrio_id" id="barrio" class="form-control" required></select>
-                                {{--{!! Form::select('barrio_id', $barrios, null, ['class' => 'form-control', 'id' => 'barrios', 'required' => true]) !!}--}}
+                                <select name="barrio_id" id="barrio" class="form-control canBeDisabled" required></select>
+                                {{--{!! Form::select('barrio_id', $barrios, null, ['class' => 'form-control canBeDisabled', 'id' => 'barrios', 'required' => true]) !!}--}}
                             </div>
                             <div class="form-group">
                                 <label for="puesto">Puesto</label>
-                                <select name="puesto_id" id="puesto" class="form-control" required></select>
-                                {{--{!! Form::select('puesto_id', $puestos, null, ['class' => 'form-control', 'id' => 'puestos', 'required' => true]) !!}--}}
+                                <select name="puesto_id" id="puesto" class="form-control canBeDisabled" required></select>
+                                {{--{!! Form::select('puesto_id', $puestos, null, ['class' => 'form-control canBeDisabled', 'id' => 'puestos', 'required' => true]) !!}--}}
                             </div>
                             <div class="form-group">
                                 <label for="mesa">Mesas</label>
-                                <select name="mesa_id" id="mesa" class="form-control" required></select>
-                                {{--{!! Form::select('mesa_id', $mesas, null, ['class' => 'form-control', 'id' => 'mesas', 'required' => true]) !!}--}}
+                                <select name="mesa_id" id="mesa" class="form-control canBeDisabled" required></select>
+                                {{--{!! Form::select('mesa_id', $mesas, null, ['class' => 'form-control canBeDisabled', 'id' => 'mesas', 'required' => true]) !!}--}}
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                {!! Form::text('email', null, ['class' => 'form-control', 'required' => true]) !!}
+                                {!! Form::text('email', null, ['class' => 'form-control canBeDisabled', 'required' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="activo">Activo</label>
-                                {!! Form::select('activo', [1 => 'Si', 0 => 'No'], null, ['class' => 'form-control', 'id' => 'mesas', 'required' => true]) !!}
+                                {!! Form::select('activo', [1 => 'Si', 0 => 'No'], null, ['class' => 'form-control canBeDisabled', 'id' => 'mesas', 'required' => true]) !!}
                             </div>
                             <button id="submit-button" type="submit" class="btn btn-primary">Confirmar</button>
                         {!! Form::close() !!}
@@ -93,11 +93,35 @@
 @endsection
 
 @section('js')
+    <script>
+        $( document ).on( "municipiosLoaded", function() {
+            $('#municipio').val('{{ old('municipio_id') }}').trigger('change');
+        });
+        $( document ).on( "comunasLoaded", function() {
+            $('#comuna').val('{{ old('comuna_id') }}').trigger('change');
+        });
+        $( document ).on( "barriosLoaded", function() {
+            $('#barrio').val('{{ old('barrio_id') }}').trigger('change');
+        });
+        $( document ).on( "puestosLoaded", function() {
+            $('#puesto').val('{{ old('puesto_id') }}').trigger('change');
+        });
+        $( document ).on( "mesasLoaded", function() {
+            $('#mesa').val('{{ old('mesa_id') }}').trigger('change');
+        });
+    </script>
     @include('share.departamentos')
     @include('share.municipios')
     @include('share.comunas')
     @include('share.barrios')
     @include('share.puestos')
+    @if(old('departamento_id'))
+        <script>
+            $(document).ready(function(){
+                $('#departamento').val('{{ old('departamento_id') }}').trigger('change');
+            });
+        </script>
+    @endif
     <script type="text/javascript">
         $(document).ready(function(){
             $('#documento').on("keyup input", function(){
@@ -122,6 +146,7 @@
                     $('#documentHelp').hide();
                     $('#documento').removeClass('is-invalid');
                     $('#submit-button').show();
+                    $(".canBeDisabled").prop('disabled', false);
                 }
             });
         });
@@ -131,11 +156,13 @@
                 $('#documentHelp').show();
                 $('#documento').addClass('is-invalid');
                 $('#submit-button').hide();
+                $(".canBeDisabled").prop('disabled', true);
             } else {
                 $('#documentHelp').hide();
                 $('#documento').removeClass('is-invalid');
                 $('#documento').addClass('is-valid');
                 $('#submit-button').show();
+                $(".canBeDisabled").prop('disabled', false);
             }
         }
     </script>

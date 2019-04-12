@@ -16,7 +16,9 @@
                 data: {'id': id},
                 url: "/ajax/puestos",
                 success: function(data){
-                    dropDown.append('<option value="">' + 'Elija una opción' + '</option>');
+                    if (data != '[]') {
+                        dropDown.append('<option value="">' + 'Elija una opción' + '</option>');
+                    }
                     $.each($.parseJSON(data), function(i, d) {
                         dropDown.append('<option value="' + i + '">' + d + '</option>');
                     });

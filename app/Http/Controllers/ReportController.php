@@ -126,7 +126,7 @@ class ReportController extends Controller
         $data = [];
 
         foreach ($results as $result) {
-            $label[] = $result->activo ? 'activo' : 'inactivo';
+            $label[] = $result->activo ? 'activos' : 'inactivos';
             $data[] = $result->amount;
         }
 
