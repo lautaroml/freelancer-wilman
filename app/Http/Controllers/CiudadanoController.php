@@ -9,6 +9,7 @@ use App\Departamento;
 use App\Mesa;
 use App\Municipio;
 use App\Puesto;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -23,6 +24,23 @@ class CiudadanoController extends Controller
      */
     public function index()
     {
+        if (\auth()->user()->isAdmin()) {
+            $departamentos = Departamento::all()->pluck('nombre', 'id');
+            $users = User::all()->pluck('name', 'id');
+            $ciudadanos = Ciudadano::documento(\request('documento'))
+                ->nombres(\request('nombres'))
+                ->departamento_(\request('departamento_id'))
+                ->municipio_(\request('municipio_id'))
+                ->comuna_(\request('comuna_id'))
+                ->barrio_(\request('barrio_id'))
+                ->puesto_(\request('puesto_id'))
+                ->mesa_(\request('mesa_id'))
+                ->user_(\request('user_id'))
+                ->where('activo', 'like', '%' . \request('activo') . '%')
+                ->paginate(10);
+
+            return view('admin.ciudadanos.index', compact('ciudadanos', 'departamentos', 'users'));
+        }
         $ciudadanos = Ciudadano::documento(\request('documento'))->where('user_id', \auth()->user()->id)->paginate(10);
         return view('public.ciudadanos.index', compact('ciudadanos'));
     }

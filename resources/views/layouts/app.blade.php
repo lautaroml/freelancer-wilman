@@ -47,6 +47,8 @@
                                     <a class="dropdown-item" href="{{ route('admin.reportes.puestos', ['type' => 'bar']) }}">Reportes Puestos</a>
                                     <a class="dropdown-item" href="{{ route('admin.reportes.mesas', ['type' => 'bar']) }}">Reportes Mesas</a>
                                     <a class="dropdown-item" href="{{ route('admin.reportes.usuarios', ['type' => 'bar']) }}">Reportes Usuarios</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{ route('admin.ciudadanos.index') }}">Registro de ciudadanos</a>
                                 </div>
                             </li>
                         </ul>

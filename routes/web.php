@@ -30,6 +30,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin'])->group(fun
     Route::resource('/barrios', 'BarrioController');
     Route::resource('/puestos', 'PuestoController');
     Route::resource('/mesas', 'MesaController');
+    Route::resource('/ciudadanos', 'CiudadanoController');
 
     Route::name('reportes.')->prefix('reportes')->group(function () {
         Route::get('municipios', 'ReportController@municipios')->name('municipios');

@@ -6,6 +6,7 @@
             }
         });
         $('#departamento').on('change', function(){
+
             $('#ajax').empty();
             let dropDown = $("#municipio");
             let id = $(this).val();
@@ -23,6 +24,9 @@
                     $.each($.parseJSON(data), function(i, d) {
                         dropDown.append('<option value="' + i + '">' + d + '</option>');
                     });
+                },
+                complete: function(){
+                    $(document).trigger( "municipiosLoaded");
                 }
             });
         });
