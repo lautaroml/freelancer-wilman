@@ -61,8 +61,8 @@
                                 <a class="dropdown-item" href="{{ route('public.ciudadanos.index') }}">Registro de ciudadanos</a>
                             </li>
                         </ul>
-                        @if(auth()->user()->meta->total != '' && auth()->user()->meta->fecha != '')
-                            {{ auth()->user()->ciudadanos->count() }}/{{ auth()->user()->meta->total }} - Finaliza el {{ auth()->user()->meta->fecha }}
+                        @if(auth()->user()->meta->total)
+                            {{ auth()->user()->ciudadanos->count() }}/{{ auth()->user()->meta->total }} - Finaliza el {{ \App\Setting::first()->fecha }}
                         @endif
                     @endif
                 @endauth

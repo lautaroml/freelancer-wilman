@@ -18,8 +18,8 @@
                             <tbody>
                             @foreach($settings as $setting)
                                 <tr>
-                                    <td>{{ $setting->total }}</td>
                                     <td>{{ $setting->fecha }}</td>
+                                    <td>{{ $setting->total }}</td>
                                     <td>
                                         <a href="{{ route('admin.settings.edit', $setting->id) }}" class="btn btn-sm btn-outline-success">Editar</a>
                                     </td>
