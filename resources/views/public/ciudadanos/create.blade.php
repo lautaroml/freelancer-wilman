@@ -33,55 +33,55 @@
                             </div>
                             <div class="form-group">
                                 <label for="nombre">Nombres</label>
-                                {!! Form::text('nombres', null, ['class' => 'form-control canBeDisabled', 'required' => true]) !!}
+                                {!! Form::text('nombres', null, ['class' => 'form-control canBeDisabled', 'required' => true, 'disabled' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="telefono">Teléfono</label>
-                                {!! Form::text('telefono', null, ['class' => 'form-control canBeDisabled', 'required' => true]) !!}
+                                {!! Form::text('telefono', null, ['class' => 'form-control canBeDisabled', 'required' => true, 'disabled' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="telefono_2">Teléfono 2</label>
-                                {!! Form::text('telefono_2', null, ['class' => 'form-control canBeDisabled']) !!}
+                                {!! Form::text('telefono_2', null, ['class' => 'form-control canBeDisabled', 'disabled' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="telefono_3">Teléfono 3</label>
-                                {!! Form::text('telefono_3', null, ['class' => 'form-control canBeDisabled']) !!}
+                                {!! Form::text('telefono_3', null, ['class' => 'form-control canBeDisabled', 'disabled' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="direccion">Dirección</label>
-                                {!! Form::text('direccion', null, ['class' => 'form-control canBeDisabled', 'required' => true]) !!}
+                                {!! Form::text('direccion', null, ['class' => 'form-control canBeDisabled', 'required' => true, 'disabled' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="departamento">Departamento</label>
-                                {!! Form::select('departamento_id', $departamentos->prepend('Elija una opción'), null, ['class' => 'form-control canBeDisabled', 'id' => 'departamento', 'required' => true]) !!}
+                                {!! Form::select('departamento_id', $departamentos->prepend('Elija una opción'), null, ['class' => 'form-control canBeDisabled', 'id' => 'departamento', 'required' => true, 'disabled' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="municipio">Municipio</label>
-                                <select name="municipio_id" id="municipio" class="form-control canBeDisabled" required></select>
+                                <select name="municipio_id" id="municipio" class="form-control canBeDisabled" required disabled></select>
                             </div>
                             <div class="form-group">
                                 <label for="comuna">Comuna</label>
-                                <select name="comuna_id" id="comuna" class="form-control canBeDisabled"></select>
+                                <select name="comuna_id" id="comuna" class="form-control canBeDisabled" disabled></select>
                             </div>
                             <div class="form-group">
                                 <label for="barrio">Barrio</label>
-                                <select name="barrio_id" id="barrio" class="form-control canBeDisabled"></select>
+                                <select name="barrio_id" id="barrio" class="form-control canBeDisabled" disabled></select>
                             </div>
                             <div class="form-group">
                                 <label for="puesto">Puesto</label>
-                                <select name="puesto_id" id="puesto" class="form-control canBeDisabled"></select>
+                                <select name="puesto_id" id="puesto" class="form-control canBeDisabled" disabled></select>
                             </div>
                             <div class="form-group">
                                 <label for="mesa">Mesas</label>
-                                <select name="mesa_id" id="mesa" class="form-control canBeDisabled"></select>
+                                <select name="mesa_id" id="mesa" class="form-control canBeDisabled" disabled></select>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                {!! Form::text('email', null, ['class' => 'form-control canBeDisabled']) !!}
+                                {!! Form::text('email', null, ['class' => 'form-control canBeDisabled', 'disabled' => true]) !!}
                             </div>
                             <div class="form-group">
                                 <label for="activo">Activo</label>
-                                {!! Form::select('activo', [1 => 'Si', 0 => 'No'], null, ['class' => 'form-control canBeDisabled', 'id' => 'mesas', 'required' => true]) !!}
+                                {!! Form::select('activo', [1 => 'Si', 0 => 'No'], null, ['class' => 'form-control canBeDisabled', 'id' => 'mesas', 'required' => true, 'disabled' => true]) !!}
                             </div>
                             <button id="submit-button" type="submit" class="btn btn-primary">Confirmar</button>
                         {!! Form::close() !!}
